@@ -11,6 +11,7 @@
                             <th>Email</th>
                             <th>CPF</th>
                             <th>Telefone</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +22,10 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->cpf }}</td>
                                 <td>{{ $user->phone }}</td>
+                                <td>
+                                    <a class="btn-solid theme-primary" href="{{ url('/editar') }}" role="button">Editar</a>
+                                    <a class="btn-solid theme-danger" href="#" role="button">Excluir</a>
+                                <td>
 
                             </tr>
                         @empty
