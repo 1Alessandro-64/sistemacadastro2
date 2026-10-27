@@ -29,24 +29,20 @@ class Editar extends Component
 
     public $password_confirmation;
 
+    public $nid;
+    
+
     public function register()
     {
         $this->validate();
        
-        User::create([
+        User::update([
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'cpf' => $this->cpf,
             'phone' => $this->phone
         ]);
-
-        $credentials = [
-            'email' => $this->email,
-            'password' => $this->password,
-        ];
-
-        Auth::attempt($credentials);
 
         session()->flash('message', 'Usuário editado');
  
