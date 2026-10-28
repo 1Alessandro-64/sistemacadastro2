@@ -28,8 +28,6 @@ class Editar extends Component
     public $phone;
 
     public $password_confirmation;
-
-    public $nid;
     
 
     public function register()

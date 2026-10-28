@@ -5,6 +5,16 @@
             <div class="card-header">Editar</div>
             <div class="card-body">
                 <form wire:submit="editar">
+                    {{ $usere = $_GET['this'] }}
+                    <div class="mb-3 row">
+                        <label for="nid" class="col-md-4 col-form-label text-md-end text-start">ID</label>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control @error('nid') is-invalid @enderror" id="nid" value="{{ $usere->id }}" wire:model="nid" disabled>
+                            @if ($errors->has('nid'))
+                                <span class="text-danger">{{ $errors->first('nid') }}</span>
+                            @endif
+                        </div>
+                    </div>
                     <div class="mb-3 row">
                         <label for="name" class="col-md-4 col-form-label text-md-end text-start">Nome</label>
                         <div class="col-md-6">
@@ -21,21 +31,6 @@
                             @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="password" class="col-md-4 col-form-label text-md-end text-start">Senha</label>
-                        <div class="col-md-6">
-                          <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" wire:model="password">
-                            @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="password_confirmation" class="col-md-4 col-form-label text-md-end text-start">Confirmar Senha</label>
-                        <div class="col-md-6">
-                          <input type="password" class="form-control" id="password_confirmation" wire:model="password_confirmation">
                         </div>
                     </div>
                     <div class="mb-3 row">
