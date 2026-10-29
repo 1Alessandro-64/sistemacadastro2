@@ -37,6 +37,8 @@ class Listar extends Component
         $this->cpf = $user->cpf;
         $this->phone = $user->phone;
 
-        return redirect()->route('editar', compact('this'));
+        $valt = $this;
+        
+        return redirect()->route('editar', compact('valt'));
     }
 }
