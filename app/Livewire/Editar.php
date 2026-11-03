@@ -8,6 +8,7 @@ use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 #[Title('Editar')] 
 class Editar extends Component
@@ -47,8 +48,15 @@ class Editar extends Component
         return $this->redirectRoute('listar', navigate: true);
     }
 
-    public function render()
+    public function render(Request $request)
     {
-        return view('livewire.editar');
+        $id = $request->input('valt.nid');
+        $name = $request->input('valt.name');
+        $email = $request->input('valt.email');
+        $cpf = $request->input('valt.cpf');
+        $phone = $request->input('valt.phone');
+        
+        return view('livewire.editar', compact('id', 'name', 'email', 'cpf', 'phone'));
     }
+
 }
