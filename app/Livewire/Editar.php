@@ -13,10 +13,12 @@ use Illuminate\Http\Request;
 #[Title('Editar')] 
 class Editar extends Component
 {
+    public $nid;
+
     #[Validate('required|string|min:3|max:250')]
     public $name;
 
-    #[Validate('required|email|max:250|unique:users,email')]
+    #[Validate('required|email|max:250')]
     public $email;
 
     #[Validate('required|string|min:8|confirmed')]
@@ -31,16 +33,17 @@ class Editar extends Component
     public $password_confirmation;
     
 
-    public function register()
+    public function update()
     {
-        $this->validate();
-       
-        User::update([
-            'name' => $this->name,
+        $validated = $this->validate();
+
+        dd($validated);
+        $user = User::findOrFail($this->nid);
+        $user->update([
+            'name'  => $this->name,
             'email' => $this->email,
-            'password' => Hash::make($this->password),
-            'cpf' => $this->cpf,
-            'phone' => $this->phone
+            'cpf'   => $this->cpf,
+            'phone' => $this->phone,
         ]);
 
         session()->flash('message', 'Usuário editado');
@@ -48,15 +51,18 @@ class Editar extends Component
         return $this->redirectRoute('listar', navigate: true);
     }
 
-    public function render(Request $request)
+    public function mount(Request $request)
     {
-        $id = $request->input('valt.nid');
-        $name = $request->input('valt.name');
-        $email = $request->input('valt.email');
-        $cpf = $request->input('valt.cpf');
-        $phone = $request->input('valt.phone');
-        
-        return view('livewire.editar', compact('id', 'name', 'email', 'cpf', 'phone'));
+        $this->nid = $request->input('valt.nid');
+        $this->name = $request->input('valt.name');
+        $this->email = $request->input('valt.email');
+        $this->cpf = $request->input('valt.cpf');
+        $this->phone = $request->input('valt.phone');
+    }
+
+    public function render(Request $request)
+    {        
+        return view('livewire.editar');
     }
 
 }
