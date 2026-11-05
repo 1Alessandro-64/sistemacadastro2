@@ -21,23 +21,16 @@ class Editar extends Component
     #[Validate('required|email|max:250')]
     public $email;
 
-    #[Validate('required|string|min:8|confirmed')]
-    public $password;
-
     #[Validate('required|string|min:11|max:11')]
     public $cpf;
 
     #[Validate('required|string|min:8')]
     public $phone;
-
-    public $password_confirmation;
     
 
     public function update()
     {
         $validated = $this->validate();
-
-        dd($validated);
         $user = User::findOrFail($this->nid);
         $user->update([
             'name'  => $this->name,
