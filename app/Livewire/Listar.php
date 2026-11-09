@@ -26,6 +26,7 @@ class Listar extends Component
 
     public function deleteUser($id){
         User::find($id)->delete();
+        session()->flash('message', 'Usuário deletado');
         $this->render();
     }
 

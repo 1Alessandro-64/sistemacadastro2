@@ -18,6 +18,7 @@ class Listarv extends Component
 
     public function deleteVehicle($id){
         Vehicle::find($id)->delete();
+        session()->flash('message', 'Veículo deletado');
         $this->render();
     }
 
