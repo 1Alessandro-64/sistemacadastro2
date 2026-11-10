@@ -50,6 +50,19 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="tipou" class="col-md-4 col-form-label text-md-end text-start">Tipo</label>
+                        <div class="col-md-6">
+                            <select class="form-control @error('tipou') is-invalid @enderror" id="tipou" wire:model="tipou">
+                                <option value="">Selecione...</option>
+                                <option value="Cliente">Cliente</option>
+                                <option value="Motorista">Motorista</option>
+                            </select>
+                            @if ($errors->has('tipou'))
+                                <span class="text-danger">{{ $errors->first('tipou') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <button type="submit" class="col-md-3 offset-md-5 btn btn-primary">
                             Editar
                        </button>

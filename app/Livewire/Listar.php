@@ -17,6 +17,7 @@ class Listar extends Component
     public $password;
     public $cpf;
     public $phone;
+    public $tipou;
 
     public function render()
     {
@@ -37,6 +38,7 @@ class Listar extends Component
         $this->email = $user->email;
         $this->cpf = $user->cpf;
         $this->phone = $user->phone;
+        $this->tipou = $user->tipou;
 
         $valt = $this;
         

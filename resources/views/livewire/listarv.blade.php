@@ -28,7 +28,7 @@
                                 <td>{{ $vehicle->user->name }}</td>
                                 <td>
                                     <a class="btn-solid theme-primary" wire:click="updateVehicle({{ $vehicle->id }})" role="button">Editar</a>
-                                    <a class="btn-solid theme-danger" wire:click="deleteVehicle({{ $vehicle->id }})" role="button">Excluir</a>
+                                    <a class="btn-solid theme-danger" wire:click="deleteVehicle({{ $vehicle->id }})" wire:confirm="Tem certeza?" role="button">Excluir</a>
                                 <td>
 
                             </tr>

@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">Registrar</div>
             <div class="card-body">
-                <form wire:submit="register">
+                <form wire:submit="register" id="nform">
                     <div class="mb-3 row">
                         <label for="name" class="col-md-4 col-form-label text-md-end text-start">Nome</label>
                         <div class="col-md-6">
@@ -61,6 +61,7 @@
                         <label for="tipou" class="col-md-4 col-form-label text-md-end text-start">Tipo</label>
                         <div class="col-md-6">
                             <select class="form-control @error('tipou') is-invalid @enderror" id="tipou" wire:model="tipou">
+                                <option value="">Selecione...</option>
                                 <option value="Cliente">Cliente</option>
                                 <option value="Motorista">Motorista</option>
                             </select>

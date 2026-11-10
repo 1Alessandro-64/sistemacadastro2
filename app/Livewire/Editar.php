@@ -26,6 +26,9 @@ class Editar extends Component
 
     #[Validate('required|string|min:8')]
     public $phone;
+
+    #[Validate('required|string')]
+    public $tipou;
     
 
     public function update()
@@ -37,6 +40,7 @@ class Editar extends Component
             'email' => $this->email,
             'cpf'   => $this->cpf,
             'phone' => $this->phone,
+            'tipou' => $this->tipou,
         ]);
 
         session()->flash('message', 'Usuário editado');
@@ -51,6 +55,7 @@ class Editar extends Component
         $this->email = $request->input('valt.email');
         $this->cpf = $request->input('valt.cpf');
         $this->phone = $request->input('valt.phone');
+        $this->tipou = $request->input('valt.tipou');
     }
 
     public function render(Request $request)

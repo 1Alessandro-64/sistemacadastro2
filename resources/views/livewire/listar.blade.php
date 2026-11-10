@@ -11,6 +11,7 @@
                             <th>Email</th>
                             <th>CPF</th>
                             <th>Telefone</th>
+                            <th>Tipo</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -22,9 +23,10 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->cpf }}</td>
                                 <td>{{ $user->phone }}</td>
+                                <td>{{ $user->tipou }}</td>
                                 <td>
                                     <a class="btn-solid theme-primary" wire:click="updateUser({{ $user->id }})" role="button">Editar</a>
-                                    <a class="btn-solid theme-danger" wire:click="deleteUser({{ $user->id }})" role="button">Excluir</a>
+                                    <a class="btn-solid theme-danger" wire:click="deleteUser({{ $user->id }})" wire:confirm="Tem certeza?" role="button">Excluir</a>
                                 <td>
 
                             </tr>
