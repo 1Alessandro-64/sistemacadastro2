@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('veiculo_id')->references('id')->on('vehicle');
             $table->foreignId('reserva_id')->references('id')->on('reserva');
             $table->foreignId('checkout_id')->references('id')->on('checkout');
-            $table->foreignId('checkin_id')->references('id')->on('checkout');
+            $table->foreignId('checkin_id')->references('id')->on('checkin');
             $table->string('status');
             $table->floatval('valor_previsto');
             $table->floatval('valor_final');
