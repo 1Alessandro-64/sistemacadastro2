@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('contrato', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cliente_id')->references('id')->on('clientes');
-            $table->foreignId('veiculo_id')->references('id')->on('vehicle');
+            $table->foreignId('veiculo_id')->references('id')->on('vehicles');
             $table->foreignId('reserva_id')->references('id')->on('reserva');
             $table->foreignId('checkout_id')->references('id')->on('checkout');
             $table->foreignId('checkin_id')->references('id')->on('checkin');
             $table->string('status');
-            $table->floatval('valor_previsto');
-            $table->floatval('valor_final');
+            $table->float('valor_previsto');
+            $table->float('valor_final');
             $table->timestamp('data_locacao');
             $table->timestamps();
         });

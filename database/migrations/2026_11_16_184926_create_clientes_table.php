@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('usuario_id')->references('id')->on('users');
             $table->string('dados_cnh');
-            $table->foreignId('reserva_id')->references('id')->on('reserva');
             $table->timestamps();
         });
     }

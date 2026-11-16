@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('motoristas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_motorista')->references('id')->on('users');
+            $table->foreignId('usuario_id')->references('id')->on('users');
             $table->string('dados_cnh');
             $table->timestamps();
         });
