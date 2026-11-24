@@ -67,7 +67,7 @@
                             Editar
                        </button>
                     </div>
-                </form>
+                </form> 
                 <div class="mb-3 row"> 
                     <span wire:loading class="col-md-3 offset-md-5 text-primary">Processando...</span>
                 </div>
