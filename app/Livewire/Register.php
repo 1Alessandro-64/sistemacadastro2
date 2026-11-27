@@ -27,6 +27,9 @@ class Register extends Component
     #[Validate('required|string|min:8')]
     public $phone;
 
+    #[Validate('required|string')]
+    public $tipou;
+
     public $password_confirmation;
 
     public function register()
@@ -38,7 +41,8 @@ class Register extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'cpf' => $this->cpf,
-            'phone' => $this->phone
+            'phone' => $this->phone,
+            'tipou' => $this->tipou
         ]);
 
         $credentials = [

@@ -8,6 +8,8 @@ use App\Livewire\Dashboard;
 use App\Livewire\Logout;
 use App\Livewire\Listar;
 use App\Livewire\Listarv;
+use App\Livewire\Editar;
+use App\Livewire\Editarv;
 
 
 Route::get('/', function () {
@@ -25,4 +27,6 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/listar', Listar::class)->name('listar');
     Route::get('/registerv', Registerv::class)->name('registerv');
     Route::get('/listarv', Listarv::class)->name('listarv');
+    Route::get('/editar', Editar::class)->name('editar');
+    Route::get('/editarv', Editarv::class)->name('editarv');
 });
